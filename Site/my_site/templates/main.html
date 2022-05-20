@@ -1,23 +1,36 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="ru">
+<html lang="en">
 <head>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style_main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Main</title>
 </head>
-    <body>
-        <main role="main">
-                        <div class="navbarText">
-                          {% if user.is_authenticated %}
-                              <a href="{% url 'logout' %}">{{user.username}}::Logout</a>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header_inner">
+            <a class="header_logo" href="main.html">ILDGames</a>
 
-                          {% else %}
-                              <a href="{% url 'register' %}">Sign Up</a>
-                              <a href="{% url 'login' %}">Login</a>
-                          {% endif %}
-                        </div>
-        </main>
-    </body>
+            <nav class="nav">
+                <a class="nav_link" href="news.html">Новости</a>
+                <a class="nav_link" href="help.html">Контакты</a>
+                <a class="nav_link" href="about.html">О нас</a>
+                <a class="nav_link" href="#">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                        </span>
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="block1">
+    <img class="kartina1" src="https://radiosud.ro/wp-content/uploads/2018/04/dwayne-3be115d9-7fc1-455b-9a4a-c510afed11fa.jpg">
+    <div class="Bottom-left">Скала Джонсон сыграл на пудже</div>
+</div>
+</body>
 </html>
