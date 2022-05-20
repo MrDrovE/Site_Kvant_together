@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block title %}{% endblock %}
+
+{% block content %}
+  <h2>Login</h2>
+
+    <form method="post">
+      {% csrf_token %}
+      <table>
+        {{ form.as_p }}
+        <tr>
+          <td><input type="submit" value="Submit"></td>
+        </tr>
+      </table>
+    </form>
+<p><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
+{% endblock %}
+</body>
+</html>
