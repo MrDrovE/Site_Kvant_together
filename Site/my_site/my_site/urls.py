@@ -14,10 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 
 from app import views
-from django.contrib.auth import views as views2
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('news', views.news),
@@ -25,13 +25,13 @@ urlpatterns = [
     path('help', views.help),
     path('about', views.about),
     path('', views.main, name='home'),
+    path('news/<int:pk>', views.NewsDatailView.as_view(), name='NewsDatail'),
 
     path('accounts/', include('django.contrib.auth.urls')),
-    path('register/', views.Register.as_view(), name='register'),
-    path('password-reset/', views2.PasswordResetView.as_view(), name='password_reset'),
-    path('password-reset/done/', views2.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    path('password-reset/confirm/(P<uidb64>[-\w])/(P<token>[-\w])/', views2.PasswordResetConfirmView.as_view(),
+    path('register/', include('registration.urls')),
+    path('password-reset/', include('registration.urls'), name='password_reset'),
+    path('password-reset/done/', include('registration.urls'), name='password_reset_done'),
+    path('password-reset/confirm/(P<uidb64>[-\w])/(P<token>[-\w])/', include('registration.urls'),
          name='password_reset_confirm'),
-    path('password-reset/complete/', views2.PasswordResetCompleteView.as_view(),
-         name='password_reset_complete'),
+    path('password-reset/complete/', include('registration.urls'), name='password_reset_complete'),
 ]

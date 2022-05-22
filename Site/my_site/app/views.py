@@ -2,25 +2,22 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.http import request
 from django.template.response import TemplateResponse
-from django.urls import reverse_lazy
-from django.contrib.auth.forms import UserCreationForm
-from django.views.generic.edit import CreateView
-
-from .models import Articles , User , Category
+from django.views.generic import DetailView
+from .models import Articles
 
 # Create your views here.
-
-class Register(CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("login")
-    template_name = "registration/register.html"
-
 def main(request):
     return render(request, 'main.html')
 
 
 def news(request):
-    return render(request, 'news.html')
+    news = Articles.objects.order_by('-date')[:10]
+    return render(request, 'news.html',{'news':news})
+
+class NewsDatailView(DetailView):
+    model = Articles
+    template_name = 'news_detail.html'
+    context_object_name = 'Article'
 
 
 def articles(request):

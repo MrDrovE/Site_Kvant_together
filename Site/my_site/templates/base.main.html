@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style_main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+     <title>{% block title %} Title {% endblock %}</title>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header_inner">
+            <a class="header_logo" href="">ILDGames</a>
+
+            <nav class="nav">
+                <a class="nav_link" href="news">Новости</a>
+                <a class="nav_link" href="help">Контакты</a>
+                <a class="nav_link" href="about">О нас</a>
+                <a class="nav_link" href="#">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                        </span>
+                    <main role="main">
+                        <div class="navbarText">
+                          {% if user.is_authenticated %}
+                              <a href="{% url 'logout' %}">{{user.username}}::Logout</a>
+
+                          {% else %}
+                              <a href="{% url 'register' %}">Sign Up</a>
+                              <a href="{% url 'login' %}">Login</a>
+                          {% endif %}
+                        </div>
+                    </main>
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>
+{% block content %}
+{% endblock %}
+</body>
+</html>
