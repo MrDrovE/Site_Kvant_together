@@ -1,0 +1,18 @@
+{% extends "base_main.html"%}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/style_news.css'%}">
+{% endblock %}
+{% block title %}News{% endblock %}
+{% block content %}
+<div>
+    {% if news %}
+        {% for el in news%}
+        <h3>{{ el.name }}</h3>
+        <p>{{ el.anons }}</p>
+        {% endfor%}
+    {% else %}
+        <p>Посты не найденны!</p>
+    {% endif %}
+</div>
+{% endblock%}
