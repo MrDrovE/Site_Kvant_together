@@ -25,7 +25,13 @@ body{
     font-weight: 700;
     color: rgb(255, 255, 255);
     text-decoration: none;
+
+    transition: color .2s linear;
 }
+
+.header_logo:hover {
+     color: crimson;
+ }
 
 .header_inner {
     display: flex;
@@ -63,20 +69,14 @@ body{
     color: crimson;
 }
 
-.block1 {
-    width: 70%; /* Ширина элемента в пикселах */
-    height: 800px; 
-    margin: auto; /* Выравниваем по центру */
-    background: #2e2e2e; /* Цвет фона */
-    margin-top: 200px;
+#carouselExampleCaptions    {
+    width: 50%; /* Ширина элемента в пикселах */
+    margin: auto; /* Выравниваем по центру */ /* Цвет фона */
+    margin-top: 169px;
     border-radius: 2%;
-    position: relative; 
+    position: relativ   e;
    }
 
-.kartina1 {
-    max-width: 30%;
-    border-radius: 2%;
-    margin-top: 2%;
-    margin-left: 2%;
-    margin-bottom: 30%;
+.carousel-inner {
+     border-radius: 2%;
 }
