@@ -25,6 +25,12 @@ body{
     font-weight: 700;
     color: rgb(255, 255, 255);
     text-decoration: none;
+
+    transition: color .2s linear;
+}
+
+.header_logo:hover {
+    color: crimson;
 }
 
 .header_inner {
@@ -44,7 +50,7 @@ body{
 }
 
 .nav {
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
 }
 
@@ -60,5 +66,39 @@ body{
 }
 
 .nav_link:hover {
+    color: crimson;
+}
+
+.sign {
+    text-decoration: none;
+    color: #fff;
+
+    transition: color .2s linear;
+}
+
+.sign:hover {
+    color: crimson;
+}
+
+.login {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 10px;
+
+    transition: color .2s linear;
+}
+
+.login:hover {
+    color: crimson;
+}
+
+.logout {
+    text-decoration: none;
+    color: #fff;
+
+    transition: color .2s linear;
+}
+
+.logout:hover {
     color: crimson;
 }
