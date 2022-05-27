@@ -23,24 +23,24 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://img.championat.com/news/big/t/c/duejn-dzhonson_1515691312631609548.jpg" class="d-block w-100" alt="...">
+                <a href="#"><img src="{{ news1.img_anons }}" class="d-block w-100"></a>
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Скала Джонсон</h5>
-                    <p>Вообще красава, актер и боец MMA</p>
+                    <h5>{{ news1.name }}</h5>
+                    <p>{{ news1.anons }}</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://s8.cdn.eg.ru/wp-content/uploads/2021/11/stal-pre022424-780x585.jpg" class="d-block w-100" alt="...">
+                <a href="#"><img src="{{ news2.img_anons }}" class="d-block w-100" alt="..."></a>
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Сильвестр Сталлоне</h5>
-                    <p>Актер и нереальный качок</p>
+                    <h5>{{ news2.name }}</h5>
+                    <p>{{ news2.anons }}</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://aif-s3.aif.ru/images/004/409/a6858776ff3008c3d12fb66496dc08bd.jpg" class="d-block w-100" alt="...">
+                <a href="#"><img src="{{ news3.img_anons }}" class="d-block w-100" alt="..."></a>
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Джейсон Стетхем</h5>
-                    <p>Лучшие цитаты в Российской Федерации</p>
+                    <h5>{{ news3.name }}</h5>
+                    <p>{{ news3.anons }}</p>
                 </div>
             </div>
         </div>
@@ -54,7 +54,46 @@
         </button>
     </div>
 
-    <!-- <img class="kartina1" src="https://radiosud.ro/wp-content/uploads/2018/04/dwayne-3be115d9-7fc1-455b-9a4a-c510afed11fa.jpg">
-    <div>Скала Джонсон сыграл на пудже</div> -->
+  <div class="block2">    
+    <div class="row row-cols-1 row-cols-md-2 g-4" id="cards">
+      <div class="col">
+        <div class="card" id="card1">
+          <img src="{{ sixblock1.img_anons }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ sixblock1.name }}</h5>
+            <p class="card-text">{{ sixblock1.anons }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" id="card2">
+          <img src="{{ sixblock2.img_anons }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ sixblock2.name }}</h5>
+            <p class="card-text">{{ sixblock2.anons }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" id="card3">
+          <img src="{{ sixblock3.img_anons }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ sixblock3.name }}</h5>
+            <p class="card-text">{{ sixblock3.anons }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" id="card4">
+          <img src="{{ sixblock4.img_anons }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ sixblock4.name }}</h5>
+            <p class="card-text">{{ sixblock4.anons }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 {% endblock %}

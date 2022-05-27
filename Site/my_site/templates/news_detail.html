@@ -1,4 +1,4 @@
-{% extends "base.main.html"%}
+{% extends "base_main.html"%}
 {% load static %}
 {% block title %} {{ Article.name }} {% endblock %}
 {% block content %}
@@ -6,5 +6,30 @@
         <h1>{{ Article.name }}</h1>
         <p>{{ Article.date}}</p>
         <p>{{ Article.content }}</p>
+        <img src="{{ Article.img_content }}">
     </div>
+<p>Коментарии</p>
+
+<hr>
+{% if user.is_authenticated %}
+    <p>Добавить коментарий</p>
+    <div class="col-3">
+        <div class="row">
+            <form action="" id="add_form" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </form>
+        </div>
+        <button form="add_form" type="submit" class="btn btn-primary">Добаваить</button>
+{% else %}
+        <h3>Для написания коментарие нужно авторизоваться </h3>
+        <a href="{% url 'login' %}">Login</a>
+{% endif %}
+    {% for el in Comments %}
+    <h5>Пользователь: {{el.author_id }}</h5>
+    <p>Кментарий: {{ el.content }}</p>
+    <p>Дата размещения: {{ el.create_date }}</p>
+{% endfor %}
+</div>
+
 {% endblock %}
