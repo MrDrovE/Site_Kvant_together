@@ -9,14 +9,17 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+#import django_heroku
 from pathlib import Path
 import os
-
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -25,9 +28,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-nl*elm@@=j7j6#i+or7f#f%(s=_jjsc(92_1%zuu^92251@@j*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS =['*'] 
+#ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'ilyadensite.herokuapp.com','afternoon-plains-38638.herokuapp.com','https://tm-sys-dashbobord.herokuapp.com/','https://tm-sys-dashbobord.herokuapp.com/afternoon-plains-38638.herokuapp.com','https://']
 
 
 # Application definition
@@ -41,9 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'registration',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,12 +84,25 @@ WSGI_APPLICATION = 'my_site.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, "db.sqlite3")
-    }
-}
 
+        'default': {
+
+       'ENGINE': 'django.db.backends.postgresql',
+
+       'NAME': 'df2qunla2oovs9',
+
+       'HOST': 'ec2-34-227-120-79.compute-1.amazonaws.com',
+
+       'PORT': 5432,
+
+       'USER': 'fikkwwodkedfku',
+
+       'PASSWORD': '8a7511b91c5e612a9365053d27a34a80f2d01a4c24d9571ead810e06ac3e6f8e',
+
+}}
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -123,6 +141,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -131,6 +151,10 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+STATIC_ROOT = os.path.jojn(BASE_DIR,'staticfiles')
+
+#django_heroku.settings(locals()) #В конце
