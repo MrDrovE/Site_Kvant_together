@@ -5,11 +5,13 @@
 {% endblock %}
 {% block title %}News{% endblock %}
 {% block content %}
-<div>
+<div class="posts">
     {% if news %}
         {% for el in news%}
         <h3>{{ el.name }}</h3>
         <p>{{ el.anons }}</p>
+        <img src="{{ el.img_anons }}">
+        <a href="{% url 'NewsDatail' el.id %}">Читать детальнее! </a>
         {% endfor%}
     {% else %}
         <p>Посты не найденны!</p>

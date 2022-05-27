@@ -9,7 +9,7 @@ from .models import Articles
 
 @admin.register(Articles)
 class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name','meta','date',)
+    list_display = ('id', 'name','meta','date','img_anons','img_content')
 
     # def view_data_link(self, obj):
     #     count = obj.user_set.count()

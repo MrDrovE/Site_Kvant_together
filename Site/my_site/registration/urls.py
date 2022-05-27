@@ -4,7 +4,7 @@ from . import views as v
 from django.contrib.auth import views
 
 urlpatterns = [
-    path('register/', v.Register.as_view(), name='register'),
+    path('register/', v.register, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('password-reset/', views.PasswordResetView.as_view(), name='password_reset'),
     path('password-reset/done/', views.PasswordResetDoneView.as_view(), name='password_reset_done'),

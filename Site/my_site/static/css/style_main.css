@@ -6,6 +6,8 @@ body{
     font-size: 15px;
     line-height: 1.6;
     color: rgb(255, 255, 255);
+
+    height:1700px;
 }
 
 *,
@@ -50,7 +52,7 @@ body{
 }
 
 .nav {
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
 }
 
@@ -69,14 +71,92 @@ body{
     color: crimson;
 }
 
-#carouselExampleCaptions    {
-    width: 50%; /* Ширина элемента в пикселах */
+#carouselExampleCaptions {
+    width: 60%; /* Ширина элемента в пикселах */
     margin: auto; /* Выравниваем по центру */ /* Цвет фона */
     margin-top: 169px;
     border-radius: 2%;
-    position: relativ   e;
+    position: relative;
    }
 
 .carousel-inner {
      border-radius: 2%;
+}
+
+.card-body {
+    color: #fff;
+}
+
+#card3 {
+    margin-left: 20%;
+    right: 16%;
+    margin-bottom: 25px;
+}
+
+#card1 {
+    margin-left: 20%;
+    right: 16%;
+}
+
+#card2 {
+    margin-right: 20%;
+    left: 16%;
+}
+
+#card4 {
+    margin-right: 20%;
+    left: 16%;
+    margin-bottom: 25px;
+}
+
+#cards {
+    margin: auto;
+    margin-top: 10%;
+    width: 80%;
+}
+
+.block2 {   
+    background-color: #333;
+    border-radius: 2%;
+    width: 70%;
+    margin: auto;
+}
+
+.card {
+    background-color: #333;
+    border: 0;
+}
+
+.sign {
+    text-decoration: none;
+    color: #fff;
+
+    transition: color .2s linear;
+}
+
+.sign:hover {
+    color: crimson;
+}
+
+.login {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 10px;
+
+    transition: color .2s linear;
+}
+
+.login:hover {
+    color: crimson;
+}
+
+.logout {
+    text-decoration: none;
+    color: #fff;
+
+    transition: color .2s linear;
+}
+
+.logout:hover {
+    color: crimson;
 }

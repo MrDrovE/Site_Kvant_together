@@ -1,9 +1,18 @@
 from django import forms
-from .models import Category
+from django.forms import Textarea
+from .models import Comments
 
-from django.urls import reverse_lazy
+
+#Create your forms here.
 
 
-class ChoiceField(forms.ModelChoiceField):
-    def label_from_instance(self, obj):
-        return obj.title
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ('content',)
+
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+        self.fields[field].widget = Textarea(attrs={'rows':5})
